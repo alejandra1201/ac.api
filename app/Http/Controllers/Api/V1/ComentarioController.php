@@ -15,7 +15,8 @@ class ComentarioController extends Controller
      */
     public function index()
     {
-        //
+        $comentarios = Comentario::all();
+        return $comentarios;
     }
 
     /**
@@ -26,7 +27,17 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'mensaje' => 'required|max:255',
+        
+        ]);
+    
+    
+        $comentario=Comentario::create($request->all());
+          
+        return $comentario;
+        
     }
 
     /**
@@ -35,9 +46,10 @@ class ComentarioController extends Controller
      * @param  \App\Models\Comentario  $comentario
      * @return \Illuminate\Http\Response
      */
-    public function show(Comentario $comentario)
+    public function show($id)
     {
-        //
+        $comentario = Comentario::included()->findOrFail($id);
+        return $comentario;
     }
 
     /**
@@ -49,7 +61,16 @@ class ComentarioController extends Controller
      */
     public function update(Request $request, Comentario $comentario)
     {
-        //
+        $request->validate([
+
+            'mensaje' => 'required|max:255',
+        
+          ]);
+    
+    
+          $comentario=Comentario::create($request->all());
+          
+          return $comentario;
     }
 
     /**
@@ -60,6 +81,9 @@ class ComentarioController extends Controller
      */
     public function destroy(Comentario $comentario)
     {
-        //
+        if( $comentario->delete() )
+        return response()->json(['message' => 'Success'],204);
+    
+        return response()->json(['message' => 'Not found'],404);
     }
 }

@@ -15,13 +15,13 @@ class ComentarioFactory extends Factory
      * @return array
      */
     protected $model=Comentario::class;
+
     public function definition()
     {
         return [
             'mensaje' => $this->faker->text(10),
-        
             'user_id'=>User::all()->random()->id,
-            'sitio_id'=>Sitio::all()->random()->id,
+            'sitio_id'=>Sitio::all()->random()->id
         ];
     }
 }

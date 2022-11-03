@@ -18,7 +18,7 @@ class SitioController extends Controller
     public function index()
     {
         // return SitioResource::collection(Sitio::latest()->paginate());
-        $sitios=Sitio::all();
+        $sitios = Sitio::all();
         return $sitios;
 
     }
@@ -44,7 +44,7 @@ class SitioController extends Controller
       ]);
 
 
-      $sitio=Sitio::create($request->all());
+      $sitio = Sitio::create($request->all());
       
       return $sitio;
     

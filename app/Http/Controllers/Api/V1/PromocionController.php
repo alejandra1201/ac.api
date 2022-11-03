@@ -15,7 +15,8 @@ class PromocionController extends Controller
      */
     public function index()
     {
-        //
+        $promocions = Promocion::all();
+        return $promocions;
     }
 
     /**
@@ -26,7 +27,20 @@ class PromocionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'tipo_promocion' => 'required|max:255',
+            'descripcionpromocion' => 'required|max:255',
+            'descuento' => 'required|max:255',
+            'fechai' => 'required|max:255',
+            'fechaf' => 'required|max:255',
+    
+          ]);
+    
+    
+          $promocion = Promocion::create($request->all());
+          
+          return $promocion;
     }
 
     /**
@@ -35,9 +49,10 @@ class PromocionController extends Controller
      * @param  \App\Models\Promocion  $promocion
      * @return \Illuminate\Http\Response
      */
-    public function show(Promocion $promocion)
+    public function show($id)
     {
-        //
+        $promocion = Promocion::included()->findOrFail($id);
+        return $promocion;
     }
 
     /**
@@ -49,7 +64,20 @@ class PromocionController extends Controller
      */
     public function update(Request $request, Promocion $promocion)
     {
-        //
+        $request->validate([
+
+            'tipo_promocion' => 'required|max:255',
+            'descripcionpromocion' => 'required|max:255',
+            'descuento' => 'required|max:255',
+            'fechai' => 'required|max:255',
+            'fechaf' => 'required|max:255',
+    
+          ]);
+    
+    
+          $promocion = Promocion::create($request->all());
+          
+          return $promocion;
     }
 
     /**
@@ -60,6 +88,9 @@ class PromocionController extends Controller
      */
     public function destroy(Promocion $promocion)
     {
-        //
+        if( $promocion->delete() )
+            return response()->json(['message' => 'Success'],204);
+        
+        return response()->json(['message' => 'Not found'],404);
     }
 }

@@ -43,24 +43,24 @@ class User extends Authenticatable
     ];
 
     //relacion uno a muchos
-    public function posts(){
+         public function posts(){
         return $this->hasMany(Post::class);
-    }
-    public function sitio(){
+         }
+        public function sitio(){
         return $this->hasMany(Sitio::class);
         }
     
         public function comentarios (){
-            return $this->hasMany(Comentario::class);
+         return $this->hasMany(Comentario::class);
         }
     
     //relacion uno a muchos polimorfica
-    public function imageable(){
+        public function imageable(){
         return $this->morphTO();
         
         }
     //relacion uno a muchos
-    public function sitios(){
+        public function sitios(){
         return $this->belongsToMany(Sitio::class);
         
         }

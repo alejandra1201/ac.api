@@ -48,7 +48,7 @@ class Sitio extends Model
     }
    //relacion uno a muchos polimorfica
    public function images(){
-    return $this->belongsTo(Image::class);
+    return $this->belongsTo(Image::class, 'imageable');
     
     }
      //relacion uno a muchos

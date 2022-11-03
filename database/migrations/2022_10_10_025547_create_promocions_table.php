@@ -23,7 +23,7 @@ class CreatePromocionsTable extends Migration
            
           
             $table->unsignedBigInteger('sitio_id')->nullable();
-            $table->foreign('sitio_id') ->references('id')->on('sitios')->onDelete('set null');
+            $table->foreign('sitio_id') ->references('id')->on('sitios')->onDelete('cascade');
             $table->timestamps();
         });
     }

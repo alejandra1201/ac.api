@@ -9,8 +9,8 @@ class Image extends Model
 {
     use HasFactory;
 
-    public function imagiable(){
-        return $this->morptTo();
+    public function imageable(){
+    return $this->morptTo();
     }
 
 }

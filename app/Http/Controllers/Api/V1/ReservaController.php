@@ -15,7 +15,8 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        //
+        $reservas=Reserva::all();
+        return $reservas;
     }
 
     /**
@@ -26,7 +27,20 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'estado' => 'required|max:255',
+            'correo' => 'required|max:255',
+            'fechaReserva' => 'required|max:255',
+            'contacto' => 'required|max:255',
+            'descripcionReserva' => 'required|max:255',
+    
+          ]);
+    
+    
+          $reserva=Reserva::create($request->all());
+          
+          return $reserva;
     }
 
     /**
@@ -35,9 +49,10 @@ class ReservaController extends Controller
      * @param  \App\Models\Reserva  $reserva
      * @return \Illuminate\Http\Response
      */
-    public function show(Reserva $reserva)
+    public function show($id)
     {
-        //
+        $reserva = Reserva::included()->findOrFail($id);
+        return $reserva;
     }
 
     /**
@@ -49,7 +64,20 @@ class ReservaController extends Controller
      */
     public function update(Request $request, Reserva $reserva)
     {
-        //
+        $request->validate([
+
+            'estado' => 'required|max:255',
+            'correo' => 'required|max:255',
+            'fechaReserva' => 'required|max:255',
+            'contacto' => 'required|max:255',
+            'descripcionReserva' => 'required|max:255',
+    
+          ]);
+    
+    
+          $reserva=Reserva::create($request->all());
+          
+          return $reserva;
     }
 
     /**
@@ -60,6 +88,9 @@ class ReservaController extends Controller
      */
     public function destroy(Reserva $reserva)
     {
-        //
+        if( $reserva->delete() )
+        return response()->json(['message' => 'Success'],204);
+    
+        return response()->json(['message' => 'Not found'],404);
     }
 }

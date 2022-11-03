@@ -15,11 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category= Category::all();
-        return $category;
+        $categories = Category::all();
+        return $categories;
     }
 
-    /**
+    /**php artisan config:cache
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -27,8 +27,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category-> nombre_categoria = $request->nombre_categoria;
+       
+        $request->validate([
+
+            'nombre_categoria' => 'required|max:255',
+        
+          ]);
+    
+    
+          $category = Category::create($request->all());
+          
+          return $category;
+        
     }
 
     /**
@@ -37,9 +47,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        $category = Category::included()->findOrFail($id);
+        return $category;
     }
 
     /**
@@ -51,7 +62,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+
+            'nombre_categoria' => 'required|max:255',
+        ]);
+    
+    
+          $category = Category::create($request->all());
+          
+          return $category;
     }
 
     /**
@@ -62,6 +81,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
+        if( $category->delete() )
+        return response()->json(['message' => 'Success'],204);
+    
+        return response()->json(['message' => 'Not found'],404);
     }
 }

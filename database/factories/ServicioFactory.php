@@ -14,14 +14,16 @@ class ServicioFactory extends Factory
      * @return array
      */
 
-    protected $model=Servicio::class;
+    protected $model = Servicio::class;
 
     public function definition()
     {
         return [
+            
             'nombreServicio' => $this->faker->text(10),
             'valorServicio' =>$this->faker->text(10),
             'sitio_id'=>Sitio::all()->random()->id,
+            
         ];
     }
 }

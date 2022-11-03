@@ -15,7 +15,8 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        //
+    
+        return Servicio::all();
     }
 
     /**
@@ -26,8 +27,20 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'nombreServicio' => 'required|max:255',
+            'valorServicio' => 'required|max:255',
+        
+          ]);
+    
+    
+          $servicio=Servicio::create($request->all());
+          
+          return $servicio;
+        
     }
+    
 
     /**
      * Display the specified resource.
@@ -35,9 +48,10 @@ class ServicioController extends Controller
      * @param  \App\Models\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function show(Servicio $servicio)
+    public function show($id)
     {
-        //
+        $servicio = Servicio::included()->findOrFail($id);
+        return $servicio;
     }
 
     /**
@@ -49,7 +63,19 @@ class ServicioController extends Controller
      */
     public function update(Request $request, Servicio $servicio)
     {
-        //
+        
+        $request->validate([
+
+            'nombreServicio' => 'required|max:255',
+            'valorServicio' => 'required|max:255',
+        
+          ]);
+    
+    
+          $servicio=Servicio::create($request->all());
+          
+          return $servicio;
+        
     }
 
     /**
@@ -60,6 +86,9 @@ class ServicioController extends Controller
      */
     public function destroy(Servicio $servicio)
     {
-        //
+        if( $servicio->delete() )
+        return response()->json(['message' => 'Success'],204);
+    
+         return response()->json(['message' => 'Not found'],404);
     }
 }

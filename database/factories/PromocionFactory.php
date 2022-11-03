@@ -22,7 +22,7 @@ class PromocionFactory extends Factory
             'descuento'	=> $this->faker->text(10),
             'fechai'	=> $this->faker->dateTimeAD(10),
             'fechaf' =>$this->faker->dateTimeAD(10),
-            'sitio_id'=>Sitio::all()->random()->id,
+            'sitio_id'=>Sitio::all()->random()->id
         ];
     }
 }

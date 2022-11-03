@@ -24,7 +24,7 @@ class SitioFactory extends Factory
             'contacto'	=> $this->faker->numberBetween(),
             'descripcion'	=> $this->faker->text(10),
             'sitio_web' =>$this->faker->text(10),
-            'rutas' =>$this->faker->text(10),
+            'rutas' =>$this->faker->text(10)
         ];
     }
 }

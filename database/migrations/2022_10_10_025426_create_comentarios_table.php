@@ -20,9 +20,9 @@ class CreateComentariosTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('sitio_id')->nullable();
            
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             
-            $table->foreign('sitio_id')->references('id')->on('sitios')->onDelete('set null');
+            $table->foreign('sitio_id')->references('id')->on('sitios')->onDelete('cascade');
             $table->timestamps();
         });
     }
