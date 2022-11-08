@@ -38,13 +38,14 @@ class SitioController extends Controller
         'municipio' => 'required|max:255',
         'contacto' => 'required|max:255',
         'descripcion' => 'required|max:255',
-        'rutas' => 'required|max:255',
         'sitio_web' => 'required|max:255',
+        'rutas' => 'required|max:255',
+        
 
       ]);
 
-
-      $sitio = Sitio::create($request->all());
+   
+      $sitio=Sitio::create($request->all());
       
       return $sitio;
     
@@ -80,8 +81,8 @@ class SitioController extends Controller
             'municipio' => 'required|max:255',
             'contacto' => 'required|max:255',
             'descripcion' => 'required|max:255',
-            'rutas' => 'required|max:255',
             'sitio_web' => 'required|max:255',
+            'rutas' => 'required|max:255',
     
           ]);
 

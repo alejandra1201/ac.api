@@ -23,8 +23,6 @@ class CreateSitiosTable extends Migration
             $table->longText('descripcion');
             $table->string('sitio_web');
             $table->string('rutas');
-            
-        
             $table->timestamps();
         });
     }
