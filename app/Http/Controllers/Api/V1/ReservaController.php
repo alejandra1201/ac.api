@@ -15,8 +15,9 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        $reservas=Reserva::all();
-        return $reservas;
+        // $reservas=Reserva::all();
+        // return $reservas;
+        return Reserva::all();
     }
 
     /**

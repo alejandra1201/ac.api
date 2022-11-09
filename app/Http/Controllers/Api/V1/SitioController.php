@@ -18,8 +18,9 @@ class SitioController extends Controller
     public function index()
     {
         // return SitioResource::collection(Sitio::latest()->paginate());
-        $sitios = Sitio::all();
-        return $sitios;
+        // $sitios = Sitio::all();
+        // return $sitios;
+        return Sitio::all();
 
     }
 

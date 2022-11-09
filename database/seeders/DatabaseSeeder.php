@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Comentario;
+use App\Models\Image;
 use App\Models\Promocion;
 use App\Models\Reserva;
 use App\Models\Servicio;
@@ -11,6 +12,7 @@ use App\Models\Sitio;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
+use JetBrains\PhpStorm\Immutable;
 
 class DatabaseSeeder extends Seeder
 {
@@ -38,7 +40,8 @@ class DatabaseSeeder extends Seeder
         Reserva::factory(10)->create();
         Servicio::factory(10)->create(); 
         User::factory(10)->create();
-        Comentario::factory(10)->create(); 	 
+        Comentario::factory(10)->create(); 	
+        // Image::factory(10)->create();  
 
 
     }
