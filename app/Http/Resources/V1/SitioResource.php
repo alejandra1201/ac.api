@@ -19,7 +19,7 @@ class SitioResource extends JsonResource
         'nombre_sitio' => $this->nombre_sitio,
         'direccion' => $this->direccion,
         'municipio' => $this->municipio,
-        'contacto' => $this->contacto,
+        'Contacto' => $this->contacto,
         'precio_sitio' => $this->precio_sitio,
         'sitio_web' => $this->sitio_webo,
         ];

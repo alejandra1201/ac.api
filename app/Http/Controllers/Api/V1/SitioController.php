@@ -18,9 +18,9 @@ class SitioController extends Controller
     public function index()
     {
         // return SitioResource::collection(Sitio::latest()->paginate());
-        // $sitios = Sitio::all();
-        // return $sitios;
-        return Sitio::all();
+        $sitios = Sitio::all();
+        return $sitios;
+        // return Sitio::all();
 
     }
 
@@ -37,10 +37,11 @@ class SitioController extends Controller
         'nombre_sitio' => 'required|max:255',
         'direccion' => 'required|max:255',
         'municipio' => 'required|max:255',
-        'contacto' => 'required|max:255',
+        'Contacto' => 'required|max:255',
         'descripcion' => 'required|max:255',
         'sitio_web' => 'required|max:255',
         'rutas' => 'required|max:255',
+        'image_sitio' => 'required|image|max:1024'
         
 
       ]);

@@ -12,7 +12,7 @@ class Sitio extends Model
     use HasFactory;
 
 
-    protected $fillable= ['nombre_sitio', 'direccion', 'municipio', 'contacto',  'descripcion','rutas','sitio_web'];
+    protected $fillable= ['nombre_sitio', 'direccion', 'municipio', 'contacto',  'descripcion','rutas','sitio_web','image_sitio'];
     protected $allowIncluded= ['users','comentario','reserva','Category'];
 
     public function scopeIncluded(Builder $query){
@@ -47,17 +47,14 @@ class Sitio extends Model
         return $this->hasMany(Reserva::class);
     }
    //relacion uno a muchos polimorfica
-   public function images(){
-    return $this->morphMany(Image::class, 'imageable');
-    
-    }
+
      //relacion uno a muchos
     public function users(){
     return $this->belongsToMany(User::class);
     
     }
-    public function  categoria(){
-        return $this ->belongsTo(Categoria::Class);
+    public function  category(){
+        return $this ->belongsTo(Category::class);
     
       }
 }

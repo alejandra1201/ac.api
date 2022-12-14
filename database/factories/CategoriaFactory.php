@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
+use App\Models\Categoria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class CategoryFactory extends Factory
+class CategoriaFactory extends Factory
 {
    
-    protected $model=Category::class;
+    protected $model=Categoria::class;
 
     public function definition()
     {
@@ -17,6 +17,7 @@ class CategoryFactory extends Factory
         
         return [
             'nombre_categoria'=> $this->faker->text(10),
+            'image_categoria' =>$this->faker->image('public/storage/imagenes',640,480,null,false)
         ];
     }
 }

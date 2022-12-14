@@ -18,7 +18,7 @@ class CreateReservasTable extends Migration
             $table->string('estado');
             $table->string('correo')->nullable();
             $table->dateTime('fechaReserva');
-            $table->integer('contacto');
+            $table->integer('Contacto');
             $table->longText('descripcionReserva');
             $table->unsignedBigInteger('sitio_id')->nullable();
             

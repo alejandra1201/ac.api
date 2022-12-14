@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Categoria;
 use App\Models\Category;
 use App\Models\Comentario;
 use App\Models\Image;
@@ -24,24 +25,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        Storage::deleteDirectory('sitios');
-        Storage::makeDirectory('sitios');
-
-        Storage::deleteDirectory('categories');
-        Storage::makeDirectory('categories');
-
-        Storage::deleteDirectory('promocions');
-        Storage::makeDirectory('promocions');
+       
 
         User::factory(10)->create();
-        Category::factory(10)->create();
+        Categoria::factory(10)->create();
+        // Category::factory(10)->create();
         Sitio::factory(10)->create();
         Promocion::factory(10)->create();
         Reserva::factory(10)->create();
         Servicio::factory(10)->create(); 
         User::factory(10)->create();
         Comentario::factory(10)->create(); 	
-        // Image::factory(10)->create();  
+
+        
 
 
     }

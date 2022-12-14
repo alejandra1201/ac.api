@@ -21,7 +21,7 @@ class ReservaFactory extends Factory
             'estado' => $this->faker->text(10),
             'correo'	=> $this->faker->text(10),
             'fechaReserva'	=> $this->faker->dateTimeAD(),
-            'contacto'	=> $this->faker->numberBetween(),
+            'Contacto'	=> $this->faker->numberBetween(),
             'descripcionReserva' =>$this->faker->text(10),
             'sitio_id'=>Sitio::all()->random()->id
         ];

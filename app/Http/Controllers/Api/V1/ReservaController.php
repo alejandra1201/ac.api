@@ -15,9 +15,9 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        // $reservas=Reserva::all();
-        // return $reservas;
-        return Reserva::all();
+        $reservas = Reserva::all();
+        return $reservas;
+        // return Reserva::all();
     }
 
     /**
@@ -33,7 +33,7 @@ class ReservaController extends Controller
             'estado' => 'required|max:255',
             'correo' => 'required|max:255',
             'fechaReserva' => 'required|max:255',
-            'contacto' => 'required|max:255',
+            'Contacto' => 'required|max:255',
             'descripcionReserva' => 'required|max:255',
     
           ]);
@@ -70,7 +70,7 @@ class ReservaController extends Controller
             'estado' => 'required|max:255',
             'correo' => 'required|max:255',
             'fechaReserva' => 'required|max:255',
-            'contacto' => 'required|max:255',
+            'Contacto' => 'required|max:255',
             'descripcionReserva' => 'required|max:255',
     
           ]);

@@ -22,6 +22,7 @@ class PromocionFactory extends Factory
             'descuento'	=> $this->faker->text(10),
             'fechai'	=> $this->faker->dateTimeAD(10),
             'fechaf' =>$this->faker->dateTimeAD(10),
+            'image_promocion' =>$this->faker->image('public/storage/imagenes',640,480,null,false),
             'sitio_id'=>Sitio::all()->random()->id
         ];
     }

@@ -10,8 +10,8 @@ class Promocion extends Model
 {
     use HasFactory;
 
-    protected $fillable= ['tipo_promocion', 'descripcionpromocion', 'descuento','fechai','fechaf'];
-    protected $allowIncluded= ['category','sitio'];
+    protected $fillable= ['tipo_promocion', 'descripcionpromocion', 'descuento','fechai','fechaf','image_promocion'];
+    protected $allowIncluded= ['category','sitio',];
 
     public function scopeIncluded(Builder $query){
        
@@ -45,11 +45,7 @@ class Promocion extends Model
         return $this ->belongsTo(Sitio::class);
       
         }
-      //relacion uno a muchos polimorfica
-        public function images(){
-        return $this->belongsTo(Image::class, 'imageable');
-        
-      }
+      
   
   }
   

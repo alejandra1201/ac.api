@@ -19,10 +19,11 @@ class CreateSitiosTable extends Migration
             $table->string('nombre_sitio',45);
             $table->string('direccion',45);
             $table->string('municipio',45);
-            $table->integer('contacto');          
+            $table->integer('Contacto');          
             $table->longText('descripcion');
             $table->string('sitio_web');
             $table->string('rutas');
+            $table->string('image_sitio');
             $table->timestamps();
         });
     }

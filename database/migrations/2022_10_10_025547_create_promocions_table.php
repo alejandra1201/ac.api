@@ -20,7 +20,8 @@ class CreatePromocionsTable extends Migration
             $table->string('descuento');
             $table->dateTime('fechai');
             $table->dateTime('fechaf');
-           
+            $table->string('image_promocion');
+            
           
             $table->unsignedBigInteger('sitio_id')->nullable();
             $table->foreign('sitio_id') ->references('id')->on('sitios')->onDelete('cascade');

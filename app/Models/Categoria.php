@@ -6,22 +6,19 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comentario extends Model
+class Categoria extends Model
 {
     use HasFactory;
 
+    protected $fillable= ['nombre_categoria','image_categoria'];
+    protected $allowIncluded= [];
    
-    
-    protected $fillable= ['name', 'tipo_comentario','mensaje'];
-    protected $allowIncluded= ['sitio','user'];
-
-
     public function scopeIncluded(Builder $query){
        
       if(empty($this->allowIncluded)||empty(request('included'))){
           return;
       }
-      $relations = explode(',', request('included'));//['post','relation2']
+      $relations = explode(',', request('included'));
       
       $allowIncluded=collect($this->allowIncluded);//colocamos en una colecion lo que tiene $allowIncluded en este caso = ['posts','posts.user']
       
@@ -36,16 +33,8 @@ class Comentario extends Model
       $query->with($relations);
    
   }
-
-    
-    //Relacion uno a muchos (inversa)
-    public function user(){
-    return $this ->belongsTo(User::class);
   
-    }
-  
-    public function sitio(){
-    return $this ->belongsTo(Sitio::class);
-  
-    }
+ 
 }
+
+

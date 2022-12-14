@@ -34,7 +34,8 @@ class PromocionController extends Controller
             'descuento' => 'required|max:255',
             'fechai' => 'required|max:255',
             'fechaf' => 'required|max:255',
-    
+            'image_promocion' => 'required|image|max:1024'
+       
           ]);
     
     
@@ -71,7 +72,8 @@ class PromocionController extends Controller
             'descuento' => 'required|max:255',
             'fechai' => 'required|max:255',
             'fechaf' => 'required|max:255',
-    
+            'image_promocion' => 'required|image|max:1024'
+       
           ]);
     
     

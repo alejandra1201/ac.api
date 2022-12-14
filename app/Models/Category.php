@@ -10,7 +10,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable= ['nombre_categoria'];
+    protected $fillable= ['nombre_categoria','image_categoria'];
     protected $allowIncluded= [];
    
     public function scopeIncluded(Builder $query){
@@ -34,9 +34,6 @@ class Category extends Model
    
   }
   
-    public function images(){
-    return $this->belongsTo(Image::class, 'imageable');
-      
-    }
+ 
 }
 

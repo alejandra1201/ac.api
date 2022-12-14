@@ -11,8 +11,8 @@ class Reserva extends Model
     use HasFactory;
 
 
-    protected $fillable= ['estado', 'correo','fechaReserva','contacto','descripcionReserva'];
-    protected $allowIncluded= ['Sitio'];
+    protected $fillable= ['estado', 'correo','fechaReserva','Contacto','descripcionReserva'];
+    protected $allowIncluded= ['sitio'];
 
 
     public function scopeIncluded(Builder $query){
